@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="socialcops">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>SocialCops - Get Started </title>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.material.min.css" media="screen" title="no title" charset="utf-8">
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script type="text/javascript" src="controller/core.js"></script>
+
+</head>
+<body data-ng-controller="mainController">
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo"></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/new">Home</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <h1 class="header center orange-text">SocailCops</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Create New Users</h5>
+      </div>
+
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="" id="first_name" type="text" ng-model="formData.name" class="validate">
+                <label for="first_name">Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="email" type="email" class="validate" ng-model="formData.email">
+                <label for="email">Email</label>
+              </div>
+            </div>
+
+          </form>
+      </div>
+      <div class="row center">
+        <a href="#" id="download-button" ng-click="createUser()" class="btn-large waves-effect waves-light orange">Create User</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row center" style="padding:40px;" ng-app="socialcops" ng-controller="mainController">
+    <table id="example" class="mdl-data-table" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Created Date</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Emaile</th>
+                <th>Created Date</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr ng-repeat="user in users">
+              <th>{{ userdata.name }}</th>
+              <th>{{ userdata.email}}</th>
+              <!-- <th>{{}}</th> -->
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+
+
+  <!--  Scripts-->
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/u/dt/dt-1.10.12/datatables.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable( {
+        columnDefs: [
+            {
+                targets: [ 0, 1, 2 ],
+                className: 'mdl-data-table__cell--non-numeric'
+            }
+        ]
+    } );
+  } );
+  </script>
+  </body>
+</html>
